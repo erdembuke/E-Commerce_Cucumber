@@ -54,14 +54,31 @@ public class Parent {
     }
 
     public void hoverToTheElement(WebElement element) {
-        wait.until(ExpectedConditions.visibilityOf(element));
+        waitUntilVisible(element);
+        scrollToElement(element);
         Action hover = actions.moveToElement(element).build();
         hover.perform();
     }
 
     public void doubleClickToElement(WebElement element) {
+        waitUntilClickable(element);
+        scrollToElement(element);
         Action doubleClick = actions.doubleClick(element).build();
         doubleClick.perform();
+    }
+
+    public void rightClickToElement(WebElement element) {
+        waitUntilClickable(element);
+        scrollToElement(element);
+        Action rightClick = actions.contextClick(element).build();
+        rightClick.perform();
+    }
+
+    public void dragAndDropElement(WebElement element, WebElement destination) {
+        waitUntilVisible(element);
+        scrollToElement(element);
+        Action dragElement = actions.dragAndDrop(element,destination).build();
+        dragElement.perform();
     }
 
     public List<String> listWebToListString(List<WebElement> elementList) {
