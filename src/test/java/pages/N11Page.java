@@ -1,0 +1,29 @@
+package pages;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import utilities.GWD;
+
+public class N11Page extends Parent{
+
+    public N11Page() {
+        PageFactory.initElements(GWD.getDriver(), this);
+    }
+
+    @FindBy(linkText = "Giriş Yap")
+    public WebElement navLoginBtn;
+
+    @FindBy(id = "email")
+    public WebElement inputEmail;
+
+    @FindBy(id = "password")
+    public WebElement inputPassword;
+
+    @FindBy(id = "loginButton")
+    public WebElement loginBtn;
+
+    @FindBy(className = "error-message")
+    public WebElement errorDiv;
+
+}
