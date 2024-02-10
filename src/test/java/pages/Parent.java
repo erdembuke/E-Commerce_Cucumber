@@ -54,6 +54,7 @@ public class Parent {
     }
 
     public void hoverToTheElement(WebElement element) {
+        wait.until(ExpectedConditions.visibilityOf(element));
         Action hover = actions.moveToElement(element).build();
         hover.perform();
     }

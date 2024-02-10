@@ -26,4 +26,7 @@ public class N11Page extends Parent{
     @FindBy(className = "error-message")
     public WebElement errorDiv;
 
+    @FindBy(css = "a[title=\"Hesabım\"]")
+    public WebElement navUserAccountImg;
+
 }

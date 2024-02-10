@@ -44,4 +44,16 @@ public class N11Login {
     public void erdemShouldSeeTheErrorMessage() {
         np.verifyContainsTextFunction(np.errorDiv, "E-posta adresi veya şifre hatalı");
     }
+
+    @When("Erdem fills the inputs with valid credentials and clicks login")
+    public void erdemFillsTheInputsWithValidCredentialsAndClicksLogin() {
+        np.sendKeysFunction(np.inputEmail, ConfigReader.getProperty("validEmailN11"));
+        np.sendKeysFunction(np.inputPassword, ConfigReader.getProperty("validPasswordN11"));
+        np.clickFunction(np.loginBtn);
+    }
+
+    @Then("Erdem should login successfully")
+    public void erdemShouldLoginSuccessfully() {
+        np.verifyElementDisplayed(np.navUserAccountImg);
+    }
 }
