@@ -7,15 +7,15 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         plugin = {
-                "html:target/cucumber-reports.html",
-                "json:target/json-reports/cucumber.json",
-                "junit:target/xml-report/cucumber.xml"
+                "pretty",
+                "json:target/cucumber.json",
+                "utilities.formatter.PrettyReports:target/cucumber-pretty-reports"
         },
         features = "src/test/resources",
         glue = "stepdefinitions",
-        tags = "",
+        tags = "@n11",
         dryRun = false
 )
-public class Runner {
+public class TestRunner {
         // for running cucumber tests and generating reports
 }
