@@ -46,4 +46,7 @@ public class AmazonPage extends Parent{
 
     @FindBy(id = "auth-password-missing-alert")
     public WebElement passwordMissingAlert;
+
+    @FindBy(css = "#auth-error-message-box span")
+    public WebElement authErrorMessage;
 }
