@@ -22,8 +22,8 @@ public class AmazonLogin {
         ap.verifyElementDisplayed(ap.mainLogoTopLeft);
     }
 
-    @When("Erdem clicks to the sign in button and navigates to the login page")
-    public void erdemClicksToTheSignInButtonAndNavigatesToTheLoginPage() {
+    @When("Erdem clicks to the sign in button and navigates to the amazon login page")
+    public void erdemClicksToTheSignInButtonAndNavigatesToTheAmazonLoginPage() {
         ap.clickFunction(ap.loginContainer);
         ap.waitUntilVisible(ap.inputEmail);
         String title = GWD.getDriver().getTitle();
@@ -37,8 +37,24 @@ public class AmazonLogin {
 
     @Then("Erdem should recieve the email missing error message")
     public void erdemShouldRecieveTheEmailMissingErrorMessage() {
-        ap.verifyContainsTextFunction(ap.authErrorMessage, "e-posta adresinizi veya cep telefonu numaranızı girin");
+        ap.verifyContainsTextFunction(ap.authErrorMessage, "E-posta adresinizi veya cep telefonu numaranızı girin");
 
+        GWD.quitDriver();
+    }
+
+    @And("Erdem trying to login with valid username and password")
+    public void erdemTryingToLoginWithValidUsernameAndPassword() {
+        ap.sendKeysFunction(ap.inputEmail, ConfigReader.getProperty("validEmailAmazon"));
+        ap.clickFunction(ap.continueBtn);
+
+        ap.sendKeysFunction(ap.inputPassword, ConfigReader.getProperty("validPasswordAmazon"));
+        ap.clickFunction(ap.signInSubmitBtn);
+
+    }
+
+    @Then("Erdem should login to the amazon site successfuly")
+    public void erdemShouldLoginToTheAmazonSiteSuccessfuly() {
+        ap.verifyElementDisplayed(ap.mainLogoTopLeft);
         GWD.quitDriver();
     }
 }

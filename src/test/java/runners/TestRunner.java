@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
         },
         features = "src/test/resources",
         glue = "stepdefinitions",
-        tags = "@n11",
+        tags = "@amazon",
         dryRun = false
 )
 public class TestRunner {
