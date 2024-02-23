@@ -14,8 +14,6 @@ public class AmazonLogin {
 
     @Given("Erdem navigates to the amazon website")
     public void erdemNavigatesToTheAmazonWebsite() {
-        GWD.getDriver().get(ConfigReader.getProperty("urlAmazon"));
-
         String title = GWD.getDriver().getTitle();
         Assert.assertTrue(title.toLowerCase().contains("amazon"));
 
@@ -56,5 +54,18 @@ public class AmazonLogin {
     public void erdemShouldLoginToTheAmazonSiteSuccessfuly() {
         ap.verifyElementDisplayed(ap.mainLogoTopLeft);
         GWD.quitDriver();
+    }
+
+    @And("Erdem trying to login without entering password")
+    public void erdemTryingToLoginWithoutEnteringPassword() {
+        ap.sendKeysFunction(ap.inputEmail, ConfigReader.getProperty("validEmailAmazon"));
+        ap.clickFunction(ap.continueBtn);
+
+        ap.clickFunction(ap.signInSubmitBtn);
+    }
+
+    @Then("Erdem should recieve please input password error message")
+    public void erdemShouldRecievePleaseInputPasswordErrorMessage() {
+        ap.verifyContainsTextFunction(ap.passwordMissingAlert, "Şifrenizi girin");
     }
 }

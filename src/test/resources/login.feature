@@ -10,6 +10,11 @@ Feature: Login Feature
     Then Erdem should login to the amazon site successfuly
 
 
-  Scenario: User should not be login without missing email
-    And Erdem trying to login without entering email
-    Then Erdem should recieve the email missing error message
+    Scenario: User should not be login without typing email
+      And Erdem trying to login without entering email
+      Then Erdem should recieve the email missing error message
+
+
+      Scenario: User should not be login without typing password
+        And Erdem trying to login without entering password
+        Then Erdem should recieve please input password error message
