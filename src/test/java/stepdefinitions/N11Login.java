@@ -5,7 +5,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
-import pages.N11Page;
+import pages.n11.N11Page;
 import utilities.ConfigReader;
 import utilities.GWD;
 

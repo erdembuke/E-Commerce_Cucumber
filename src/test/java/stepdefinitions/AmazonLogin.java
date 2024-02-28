@@ -5,7 +5,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
-import pages.AmazonPage;
+import pages.amazon.AmazonPage;
 import utilities.ConfigReader;
 import utilities.GWD;
 
@@ -67,5 +67,20 @@ public class AmazonLogin {
     @Then("Erdem should recieve please input password error message")
     public void erdemShouldRecievePleaseInputPasswordErrorMessage() {
         ap.verifyContainsTextFunction(ap.passwordMissingAlert, "Şifrenizi girin");
+    }
+
+    @And("Erdem trying to login with valid email but invalid password")
+    public void erdemTryingToLoginWithValidEmailButInvalidPassword() {
+        ap.sendKeysFunction(ap.inputEmail, ConfigReader.getProperty("validEmailAmazon"));
+        ap.clickFunction(ap.continueBtn);
+
+        ap.sendKeysFunction(ap.inputPassword, ConfigReader.getProperty("invalidPasswordAmazon"));
+        ap.clickFunction(ap.signInSubmitBtn);
+
+    }
+
+    @Then("Erdem should recieve wrong password message")
+    public void erdemShouldRecieveWrongPasswordMessage() {
+        ap.verifyContainsTextFunction(ap.authErrorMessage2, "Şifreniz yanlış");
     }
 }

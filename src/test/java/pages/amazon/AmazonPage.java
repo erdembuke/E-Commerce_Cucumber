@@ -1,11 +1,12 @@
-package pages;
+package pages.amazon;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import pages.Parent;
 import utilities.GWD;
 
-public class AmazonPage extends Parent{
+public class AmazonPage extends Parent {
 
     public AmazonPage() {
         PageFactory.initElements(GWD.getDriver(), this);
@@ -49,4 +50,7 @@ public class AmazonPage extends Parent{
 
     @FindBy(css = "#auth-email-missing-alert .a-alert-content")
     public WebElement authErrorMessage;
+
+    @FindBy(className = "a-alert-content")
+    public WebElement authErrorMessage2;
 }

@@ -1,11 +1,12 @@
-package pages;
+package pages.n11;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import pages.Parent;
 import utilities.GWD;
 
-public class N11Page extends Parent{
+public class N11Page extends Parent {
 
     public N11Page() {
         PageFactory.initElements(GWD.getDriver(), this);

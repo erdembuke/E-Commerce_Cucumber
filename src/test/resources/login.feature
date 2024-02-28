@@ -18,3 +18,7 @@ Feature: Login Feature
       Scenario: User should not be login without typing password
         And Erdem trying to login without entering password
         Then Erdem should recieve please input password error message
+
+        Scenario: User should not be login with valid email but invalid password
+          And Erdem trying to login with valid email but invalid password
+          Then Erdem should recieve wrong password message
