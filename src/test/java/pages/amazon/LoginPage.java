@@ -4,31 +4,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import pages.Parent;
+import utilities.ConfigReader;
 import utilities.GWD;
 
-public class AmazonPage extends Parent {
+public class LoginPage extends Parent {
 
-    public AmazonPage() {
+    public LoginPage() {
         PageFactory.initElements(GWD.getDriver(), this);
     }
-
-    @FindBy(xpath = "//button[text()=\"Reddet\"]")
-    public WebElement rejectCookiesBtn;
-
-    @FindBy(id = "nav-link-accountList")
-    public WebElement loginContainer;
-
-    @FindBy(linkText = "Üye olun.")
-    public WebElement registerInContainer;
-
-    @FindBy(id = "twotabsearchtextbox")
-    public WebElement searchBox;
-
-    @FindBy(id = "nav-search-submit-button")
-    public WebElement searchBtn;
-
-    @FindBy(id = "nav-logo-sprites")
-    public WebElement mainLogoTopLeft;
 
     @FindBy(id = "ap_email")
     public WebElement inputEmail;
@@ -53,4 +36,13 @@ public class AmazonPage extends Parent {
 
     @FindBy(className = "a-alert-content")
     public WebElement authErrorMessage2;
+
+
+    public void loginFunction(String email, String password) {
+        sendKeysFunction(inputEmail, email);
+        clickFunction(continueBtn);
+
+        sendKeysFunction(inputPassword, password);
+        clickFunction(signInSubmitBtn);
+    }
 }
